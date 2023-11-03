@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const productSchema = require('./Product')
 const dateFormat = require('../utils/dateFormat');
-const 
+const userSchema = require("./User")
 
 const bidSchema = new Schema({
   bidId: {
