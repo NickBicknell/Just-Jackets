@@ -13,18 +13,13 @@ const bidSchema = new Schema({
     required: true,
     trim: true,
   },
-  size: {
-    type: String,
-    default: "M",
-    required: true,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
   productId: [productSchema],
-  
+  userId: [userSchema]
 });
 
 const Bid = model('Bid', bidSchema);
