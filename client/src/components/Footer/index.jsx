@@ -1,32 +1,20 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => navigate(-1)}
-          >
-            &larr; Go Back
-          </button>
-        )}
-        <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Tech Thoughts team.
-        </h4>
-      </div>
+    <footer className="footer">
+      <Container>
+        <Row>
+        <Col xs={2}><p>Developed by:</p></Col>
+        <Col xs={2}><p>Nicholas Bicknell</p></Col>
+        <Col xs={2}><p>Zikos Antonios</p></Col>
+        <Col xs={4}></Col>
+        <Col xs={2}><p>Github Icon</p></Col>
+        </Row>
+      </Container>
     </footer>
   );
 };
