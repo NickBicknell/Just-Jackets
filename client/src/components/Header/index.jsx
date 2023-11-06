@@ -32,12 +32,14 @@ const Header = () => {
             <>
               <Col>
               <Link className="btn fs-5" to="/me">
-                {Auth.getProfile().data.username}'s profile
+                Profile
               </Link>
               </Col>
+              <Col>
               <button className="btn fs-5" onClick={logout}>
                 Logout
               </button>
+              </Col>
             </>
           ) : (
             <>

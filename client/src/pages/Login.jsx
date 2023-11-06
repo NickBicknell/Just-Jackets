@@ -47,24 +47,34 @@ const Login = (props) => {
 
   return (
     <>
-    <h1 className="text-center text-white fs-1">Login</h1>
-    <Container className="d-flex justify-content-center mt-5">
-      <Card style={{ width: "50rem" }}>
-        <Form className="p-3">
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="example@example.com" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-          <Button className="form-btn" type="submit">
-            Login
-          </Button>
-        </Form>
-      </Card>
-    </Container>
+      <h1 className="text-center text-white fs-1">Login</h1>
+      <Container className="d-flex justify-content-center mt-5">
+        <Card style={{ width: "50rem" }}>
+          {data ? (
+            <p>
+              Success! You may now head{" "}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <Form className="p-3" onSubmit={handleFormSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="example@example.com" name="email" value={formState.email} onChange={handleChange} />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="********" name="password" value={formState.password} onChange={handleChange} />
+              </Form.Group>
+              <Button className="form-btn" type="submit">
+                Login
+              </Button>
+            </Form>
+          )}
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          )}
+        </Card>
+      </Container>
     </>
 
     // <main className="flex-row justify-center mb-4">
