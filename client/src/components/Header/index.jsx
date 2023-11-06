@@ -20,9 +20,9 @@ const Header = () => {
 
   return (
     <Navbar expand="lg">
-    <Container className="mb-5">
+    <Container className="mb-5 nav">
       <Link className="text-decoration-none" to="/">
-        <Navbar.Brand className="fs-1 text-white">Just Jackets</Navbar.Brand>
+        <Navbar.Brand className="fs-1 text-white ps-3">Just Jackets</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
