@@ -37,3 +37,17 @@
   padding-bottom: 5px;
   border-bottom: 1px solid #BCA37F;
 }
+.nav-tabs button {
+  color: #BCA37F;
+  font-weight: bold;
+}
+
+.nav-tabs button:active, .nav-tabs button:hover {
+  background-color: #BCA37F;
+  color: #113946;
+}
+
+.nav-tabs .nav-item button.active {
+  color: #113946;
+  background-color: #EAD7BB;
+}
