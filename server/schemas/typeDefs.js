@@ -1,26 +1,31 @@
-const typeDefs = `
-  type User {
-    _id: ID
-    username: String
-    email: String
-    password: String
-    thoughts: [Thought]!
-  }
+const { gql } = require('apollo-server');
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
+const typeDefs = gql`
+type Bid {
+  bidId: ID!
+  amount: Float!
+  createdAt: String!
+  product: Product!
+  user: User!
+}
 
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
-  }
+type User {
+  userId: ID!
+  username: String!
+  email: String!
+  password: String!
+  address: String!
+  bids: [Bid]
+}
+
+type Product {
+  productId: ID!
+  name: String!
+  brand: String!
+  size: String!
+  createdAt: String!
+}
+
 
   type Auth {
     token: ID!
