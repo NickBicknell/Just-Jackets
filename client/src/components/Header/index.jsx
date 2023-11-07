@@ -1,44 +1,66 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
+
+
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">Tech Thoughts</h1>
-          </Link>
-          <p className="m-0">Get into the mind of a programmer.</p>
-        </div>
-        <div>
+    <Navbar expand="lg">
+    <Container className="mb-5 nav">
+      <Link className="text-decoration-none" to="/">
+        <Navbar.Brand className="fs-1 text-white ps-3">Just Jackets</Navbar.Brand>
+      </Link>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Nav >
+          <Row>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.username}'s profile
+              <Col>
+              <Link className="btn fs-5" to="/me">
+                Profile
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              </Col>
+              <Col>
+              <button className="btn fs-5" onClick={logout}>
                 Logout
               </button>
+              </Col>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Col>
+              <Link className="btn fs-5" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              </Col>
+              <Col>
+              <Link className="btn fs-5" to="/signup">
                 Signup
               </Link>
+              </Col>
             </>
           )}
-        </div>
-      </div>
-    </header>
+          </Row>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
+
   );
 };
 
