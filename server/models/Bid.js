@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
 const productSchema = require('./Product')
 const dateFormat = require('../utils/dateFormat');
-const userSchema = require("./User")
+const userSchema = require("./User");
+const Product = require('./Product');
 
 const bidSchema = new Schema({
   bidId: {
@@ -18,8 +19,14 @@ const bidSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  productId: [productSchema],
-  userId: [userSchema]
+  product: {
+    type: Schema.Types.ObjectId,
+    ref: "Product"
+  },
+  users: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 const Bid = model('Bid', bidSchema);
