@@ -2,28 +2,28 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
 type Bid {
-  bidId: ID!
-  amount: Float!
-  createdAt: String!
-  product: Product!
-  user: User!
+  bidId: ID
+  amount: Float
+  createdAt: String
+  product: Product
+  user: User
 }
 
 type User {
-  userId: ID!
-  username: String!
-  email: String!
-  password: String!
-  address: String!
+  userId: ID
+  username: String
+  email: String
+  password: String
+  address: String
   bids: [Bid]
 }
 
 type Product {
-  productId: ID!
-  name: String!
-  brand: String!
-  size: String!
-  createdAt: String!
+  productId: ID
+  name: String
+  brand: String
+  size: String
+  createdAt: String
 }
 
 
