@@ -30,8 +30,10 @@ const userSchema = new Schema({
       type: String,
       required: true,
     },
-    bids: [bidSchema],
-    
+    bids: [{
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }]
 
 });
 

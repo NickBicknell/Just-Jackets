@@ -10,7 +10,7 @@ const bidSchema = new Schema({
     default: () => new Types.ObjectId(),
   },
   amount: {
-    type: INT,
+    type: Number,
     required: true,
     trim: true,
   },

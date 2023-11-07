@@ -30,9 +30,6 @@ const productSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  {
-    
-  }
 });
 
 const Product = model('Product', productSchema);
