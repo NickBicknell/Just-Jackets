@@ -23,7 +23,7 @@ const bidSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Product"
   },
-  users: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User"
   }

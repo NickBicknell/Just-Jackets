@@ -30,6 +30,12 @@ const productSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  bids: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Bid",
+    },
+  ],
 });
 
 const Product = model('Product', productSchema);
