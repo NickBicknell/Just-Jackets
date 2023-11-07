@@ -10,7 +10,7 @@ import Container from "react-bootstrap/Container";
 
 import Auth from "../utils/auth";
 
-const Login = ({ setUser }) => {
+const Login = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
@@ -33,7 +33,6 @@ const Login = ({ setUser }) => {
         variables: { ...formState },
       });
       console.log('DATA:', data)
-      setUser({username: data.username, email: data.email});
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);

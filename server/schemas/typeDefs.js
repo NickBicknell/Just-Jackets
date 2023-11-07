@@ -8,7 +8,7 @@ type Bid {
 }
 
 type User {
-  userId: ID
+  _id: ID
   username: String
   email: String
   password: String
