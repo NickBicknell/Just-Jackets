@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const User = require('./user'); // Assuming you've already imported the User model
+const User = require('./userSeeds'); // Assuming you've already imported the User model
 
 const seedData = [
   {
