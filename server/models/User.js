@@ -1,7 +1,13 @@
 const { Schema, model } = require('mongoose');
+const bidSchema = require('./Bid')
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    default: () => new Types.ObjectId(),
+  },
+
   username: {
     type: String,
     required: true,
@@ -19,12 +25,16 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  address:
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
+      type: String,
+      required: true,
     },
-  ],
+    bids: [{
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }]
+
 });
 
 userSchema.pre('save', async function (next) {
