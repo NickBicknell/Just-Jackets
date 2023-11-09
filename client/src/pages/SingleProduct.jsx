@@ -8,25 +8,26 @@ import { useQuery } from "@apollo/client";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import ProductCard from "../components/ProductCard";
+import HighestBidCard from "../components/HighestBidCard";
+import ProductBidsCard from "../components/ProductBidsCard";
 
-import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
+// import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
 
 const SingleProduct = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
-  const { thoughtId } = useParams();
+  // const { thoughtId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {
-    // pass URL parameter
-    variables: { thoughtId: thoughtId },
-  });
+  // const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {
+  //   // pass URL parameter
+  //   variables: { thoughtId: thoughtId },
+  // });
 
-  const thought = data?.thought || {};
+  // const thought = data?.thought || {};
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
   return (
     // <div className="my-3">
     //   <h3 className="card-header bg-dark text-light p-2 m-0">
@@ -58,37 +59,14 @@ const SingleProduct = () => {
     // </div>
     <Container>
       <Row className="justify-content-center">
-        <Col xs={6}>
-          <Card style={{ width: "40rem" }}>
-            <Card.Img variant="top" src="../img/example-jacket.jpg" />
-            <Card.Body>
-              <Card.Title>Product Name</Card.Title>
-              <Card.Text>
-                Product Desc
-              </Card.Text>
-              <Button className="form-btn">Bid</Button>
-            </Card.Body>
-          </Card>
+        <Col>
+          <ProductCard />
         </Col>
-        <Col xs={2}>
-        <Card style={{ width: "13rem" }}>
-          <Card.Header as="h5" className="text-center">Higest Bidder</Card.Header>
-            <Card.Body>
-              <Card.Text>
-
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        <Col>
+          <HighestBidCard />
         </Col>
-        <Col xs={4}>
-        <Card style={{ width: "30rem" }}>
-          <Card.Header as="h5" className="text-center">Bid History</Card.Header>
-            <Card.Body>
-              <Card.Text>
-
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        <Col>
+        <ProductBidsCard />
         </Col>
       </Row>
     </Container>
