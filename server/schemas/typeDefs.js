@@ -17,7 +17,7 @@ type User {
 }
 
 type Product {
-  productId: ID
+  _id: ID
   name: String
   brand: String
   size: String

@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,13 +9,19 @@ import Col from 'react-bootstrap/Col';
 
 
 const ProductCarousel = () => {
-  // const { loading, data } = useQuery(QUERY_THOUGHTS);
-  // const thoughts = data?.thoughts || [];
   // const { data, loading, error } = useQuery(QUERY_PRODUCTS);
   // const products = data?.products || [];
 
   // if (loading) return "Loading...";
   // if (error) return <pre>{error.message}</pre>
+
+  // useEffect(() => {
+  //   if (data) {
+  //     console.log(data)
+  //   } else if (error) {
+  //     console.log(error)
+  //   }
+  // }, [data, loading, error])
 
   // console.log("Products: ", products)
   

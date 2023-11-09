@@ -7,15 +7,15 @@
 import { useState } from 'react';
 import ProductCarousel from '../components/ProductCarousel';
 
-import { QUERY_PRODUCTS } from "../utils/queries";
-import { useQuery } from "@apollo/client";
+// import { QUERY_PRODUCTS } from "../utils/queries";
+// import { useQuery } from "@apollo/client";
 
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
-  const products = data?.products || [];
+  // const { loading, data } = useQuery(QUERY_PRODUCTS);
+  // const products = data?.products || [];
 
-  console.log(products);
+  // console.log(products);
   
 
 
