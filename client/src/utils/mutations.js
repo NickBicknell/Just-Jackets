@@ -54,3 +54,23 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_BID = gql`
+  mutation addBid($productId: ID!, $amount: Number!) {
+    addBid(productId: $productId, amount: $amount) {
+      _id
+      name
+      brand
+      size
+      img
+      createdAt
+      bids {
+        _id
+        amount
+        product
+        createdAt
+        user
+      }
+    }
+  }
+`;

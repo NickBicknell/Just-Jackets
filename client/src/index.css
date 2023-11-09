@@ -18,6 +18,10 @@
   background-color: #113946;
 }
 
+.close-btn {
+  background-color: #BCA37F;
+}
+
 .btn-primary {
   --bs-btn-border-color: #113946;
   --bs-btn-active-border-color: #113946;

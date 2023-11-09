@@ -6,39 +6,69 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      bids {
         _id
-        thoughtText
+        amount
         createdAt
+        product
       }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_PRODUCTS = gql`
+  query getProducts {
+    products {
       _id
-      thoughtText
-      thoughtAuthor
+      name
+      brand
+      size
+      image
       createdAt
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_BIDS = gql`
+  query getBids {
+    bids {
       _id
-      thoughtText
-      thoughtAuthor
+      amount
+      product
+      user
       createdAt
-      comments {
+    }
+  }
+`;
+
+export const QUERY_SINGLE_PRODUCT = gql`
+  query getSingleProduct($productId: ID!) {
+    product(productId: $productId) {
+      _id
+      name
+      brand
+      size
+      image
+      createdAt
+      bids {
         _id
-        commentText
-        commentAuthor
+        amount
         createdAt
+        product
+        user
       }
+    }
+  }
+`;
+
+export const QUERY_SINGLE_BID = gql`
+  query getSingleBid($bidId: ID!) {
+    bid(bidId: $bidId) {
+      _id
+      amount
+      product
+      user
+      createdAt
     }
   }
 `;
@@ -49,11 +79,11 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      bids {
         _id
-        thoughtText
-        thoughtAuthor
+        product
         createdAt
+        amount
       }
     }
   }
