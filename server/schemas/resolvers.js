@@ -29,6 +29,7 @@ const resolvers = {
       const bids = await Bid.find({})
       console.log(bids)
       return bids
+      //Argument may need to be user?
     },
     async bid(parent,{bidId}, contextValue, info) {
       const bid = await Product.findOne({bidId})
@@ -66,9 +67,10 @@ const resolvers = {
     },
     createBid: async (parent, {amount, productId, userId}) =>{
       const bid = Bid.create({amount, productId, userId});
+      //Take current Product Amount and then +5 || +10 to updated Product Amount 
       console.log("Bid CREATED:", bid);
-
-    }
+    },
+    // 
   },
 };
 
