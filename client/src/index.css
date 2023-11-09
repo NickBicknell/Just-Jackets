@@ -24,8 +24,12 @@
 }
 
 .btn:hover {
-  background-color: #BCA37F;
+  background-color: #EAD7BB;
   color: #113946;
+}
+
+.icon {
+  width: 40px;
 }
 
 .bg-product {

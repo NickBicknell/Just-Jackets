@@ -22,8 +22,8 @@ import { useState, useEffect } from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { useQuery } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from './utils/queries';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_USER, QUERY_ME } from './utils/queries';
 import { useParams } from 'react-router-dom';
 
 import Auth from './utils/auth';
@@ -89,7 +89,8 @@ function App() {
             <Route path="/*" element={<ErrorPage />} />
             <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/signup" element={<Signup setUser={setUser} />} />
-            <Route path="/products/:productId" element={<SingleProduct />} />
+            {/* <Route path="/products/:productId" element={<SingleProduct />} /> */}
+            <Route path="/products/dev" element={<SingleProduct />} />
           </Routes>
         </div>
         <Footer />
