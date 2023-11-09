@@ -25,6 +25,9 @@ const productSchema = new Schema({
     default: "M",
     required: true,
   },
+  image: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now,
