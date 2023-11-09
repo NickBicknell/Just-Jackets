@@ -64,7 +64,11 @@ const resolvers = {
 
       return { token, user };
     },
+    createBid: async (parent, {amount, productId, userId}) =>{
+      const bid = Bid.create({amount, productId, userId});
+      console.log("Bid CREATED:", bid);
 
+    }
   },
 };
 
