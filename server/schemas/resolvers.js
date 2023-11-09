@@ -1,6 +1,6 @@
 const { User, Bid, Product } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
-
+const { PRODUCT_BID_INCREASE_AMOUNT } = require('../utils/constants');
 
 const resolvers = {
   Query: {
@@ -18,7 +18,7 @@ const resolvers = {
     },
     async products(parent,args, contextValue, info) {
       const products = await Product.find({})
-      return products[0]
+      return products
     },
     async product(parent,{productId}, contextValue, info) {
       const product = await Product.findOne({productId})
@@ -65,10 +65,20 @@ const resolvers = {
 
       return { token, user };
     },
-    createBid: async (parent, {amount, productId, userId}) =>{
-      const bid = Bid.create({amount, productId, userId});
+    createBid: async (parent, {productId, userId}) =>{
+      const currentProduct = await Product.findById(productId);
+      const newPrice = currentProduct.price + PRODUCT_BID_INCREASE_AMOUNT;
+      const bid = await Bid.create({amount: newPrice, productId, userId});
+
       //Take current Product Amount and then +5 || +10 to updated Product Amount 
       console.log("Bid CREATED:", bid);
+
+      await Product.findOneAndUpdate(
+        { _id: productId },
+        { price: newPrice }
+      );
+      
+      return bid;
     },
     // 
   },
