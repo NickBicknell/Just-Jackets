@@ -3,7 +3,10 @@ const bidSchema = require("./Bid");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
-
+  // userId: {
+  //   type: Schema.Types.ObjectId,
+  //   default: () => new Types.ObjectId(),
+  // },
   username: {
     type: String,
     required: true,
@@ -23,6 +26,7 @@ const userSchema = new Schema({
   },
   address: {
     type: String,
+    // required: true,
   },
   bids: [
     {

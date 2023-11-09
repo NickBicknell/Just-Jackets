@@ -2,10 +2,10 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const productSchema = new Schema({
-  productId: {
-    type: Schema.Types.ObjectId,
-    default: () => new Types.ObjectId(),
-  },
+  // productId: {
+  //   type: Schema.Types.ObjectId,
+  //   default: () => new Types.ObjectId(),
+  // },
   name: {
     type: String,
     required: true,
@@ -20,9 +20,13 @@ const productSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
+  price: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
   size: {
     type: String,
-    default: "M",
     required: true,
   },
   image: {
