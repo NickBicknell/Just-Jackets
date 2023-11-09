@@ -1,0 +1,5 @@
+const PRODUCT_BID_INCREASE_AMOUNT=5;
+
+module.exports = {
+    PRODUCT_BID_INCREASE_AMOUNT
+}

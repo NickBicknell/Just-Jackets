@@ -20,6 +20,7 @@ type Product {
   _id: ID
   name: String
   brand: String
+  price: Float
   size: String
   image: String
   createdAt: String
@@ -35,7 +36,7 @@ type Product {
     users: [User]
     user(username: String!): User
     me: User
-    products: Product
+    products: [Product]
     product(productId: ID): Product
     bids: Bid
     bid(bidId: ID): Bid
@@ -47,7 +48,7 @@ type Product {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createBid(amount: Float!, productId: ID!, userId: ID!): Bid
+    createBid(productId: ID!, userId: ID!): Bid
   }
 `;
 
