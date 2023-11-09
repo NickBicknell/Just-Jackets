@@ -21,6 +21,7 @@ type Product {
   name: String
   brand: String
   size: String
+  image: String
   createdAt: String
 }
 
