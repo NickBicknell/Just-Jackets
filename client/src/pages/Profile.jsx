@@ -1,6 +1,10 @@
-import { Navigate, useParams } from 'react-router-dom';
+// import { Navigate, useParams } from 'react-router-dom';
 // import { useQuery } from '@apollo/client';
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 
 // import Spinner from 'react-bootstrap/Spinner';
 
@@ -10,8 +14,6 @@ import { Navigate, useParams } from 'react-router-dom';
 
 const Profile = ({ user }) => {
   // const { username: userParam } = useParams();
-
-  
 
   // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
   //   variables: { username: userParam },
@@ -66,8 +68,32 @@ const Profile = ({ user }) => {
     //     )}
     //   </div>
     // </div>
-    <p className='text-center text-white'>{ user? 'If working, this will appear.' 
-    : 'You need to be logged in to see this. Use the navigation links above to sign up or log in!'}</p>
+
+    // <p className='text-center text-white fs-2'>{ user? 'If working, this will appear.'
+    // : 'You need to be logged in to see this. Use the navigation links above to sign up or log in!'}</p>
+    <Container>
+      <Row className="justify-content-center">
+        <Col xs={10}>
+          <Tabs
+            defaultActiveKey="profile"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+            variant="tabs"
+            justify
+          >
+            <Tab eventKey="home" title="Info">
+              View your account information
+            </Tab>
+            <Tab eventKey="profile" title="Bid History">
+              View your bid history
+            </Tab>
+            <Tab eventKey="contact" title="Order History">
+              View your order history
+            </Tab>
+          </Tabs>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
