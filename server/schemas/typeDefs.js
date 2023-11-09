@@ -35,13 +35,22 @@ type Product {
     users: [User]
     user(username: String!): User
     me: User
-  }
+    products: Product
+    product(productId: ID): Product
+    bids: Bid
+    bid(bidId: ID): Bid
+    }
+  
+
+
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-
+    createBid(amount: Float!, productId: ID!, userId: ID!): Bid
   }
 `;
 
 module.exports = typeDefs;
+
+

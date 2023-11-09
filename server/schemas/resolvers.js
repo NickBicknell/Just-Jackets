@@ -16,6 +16,26 @@ const resolvers = {
       const users = await User.find({})
       return users[0]
     },
+    async products(parent,args, contextValue, info) {
+      const products = await Product.find({})
+      return products[0]
+    },
+    async product(parent,{productId}, contextValue, info) {
+      const product = await Product.findOne({productId})
+      console.log(product)
+      return product
+    },
+    async bids(parent,args, contextValue, info) {
+      const bids = await Bid.find({})
+      console.log(bids)
+      return bids
+    },
+    async bid(parent,{bidId}, contextValue, info) {
+      const bid = await Product.findOne({bidId})
+      console.log(bid)
+      return bid
+    },
+
   },
 
   Mutation: {
@@ -44,7 +64,7 @@ const resolvers = {
 
       return { token, user };
     },
-   
+
   },
 };
 
