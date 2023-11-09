@@ -21,6 +21,7 @@ const ProductCard = () => {
         </Button>
       </Card.Body>
     </Card>
+    {/* change input amount to a +10 button */}
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>New Bid</Modal.Title>
