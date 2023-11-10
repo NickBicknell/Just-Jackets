@@ -37,7 +37,7 @@ const ProductCarousel = () => {
       <Carousel activeIndex={index} onSelect={handleSelect} id="carousel">
         {products && products.map((product) => {
           return <Carousel.Item key={product._id} className="p-2">
-          <img src={"public/img/" + product.image} className="d-block w-100 rounded-5" alt="" />
+          <img src={"img/" + product.image} className="d-block w-100 rounded-5" alt="" />
           <Carousel.Caption className="bg-product rounded-pill">
             <a href="" className="text-decoration-none product-name"><h3>{product.name}</h3></a>
             <p className="product-desc">{product.size} | {product.brand}</p>
