@@ -7,6 +7,7 @@ export const QUERY_USER = gql`
       username
       email
       bids {
+        _id
         amount
         createdAt
       }
@@ -41,23 +42,21 @@ export const QUERY_BIDS = gql`
 `;
 
 export const QUERY_SINGLE_PRODUCT = gql`
-  query getSingleProduct($productId: ID!) {
-    product(productId: $productId) {
+query getSingleProduct($productId: ID!) {
+  product(productId: $productId) {
+    _id
+    name
+    brand
+    size
+    image
+    createdAt
+    bids {
       _id
-      name
-      brand
-      size
-      image
+      amount
       createdAt
-      bids {
-        _id
-        amount
-        createdAt
-        product
-        user
-      }
     }
   }
+}
 `;
 
 export const QUERY_SINGLE_BID = gql`
