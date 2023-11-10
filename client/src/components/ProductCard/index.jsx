@@ -14,7 +14,7 @@ const ProductCard = () => {
     <Card style={{ width: "40rem" }}>
       <Card.Img variant="top" src="../img/example-jacket.jpg" />
       <Card.Body>
-        <Card.Title>Product Name</Card.Title>
+        <Card.Title></Card.Title>
         <Card.Text>Product Desc</Card.Text>
         <Button className="form-btn" onClick={handleShow}>
           Bid
@@ -29,12 +29,10 @@ const ProductCard = () => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Amount</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="$$$"
-                autoFocus
-              />
+              <Form.Label className="fs-3">Current Bid: $</Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label className="fs-3">Your Bid: $</Form.Label>
             </Form.Group>
           </Form>
         </Modal.Body>

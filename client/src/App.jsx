@@ -89,8 +89,8 @@ function App() {
             <Route path="/*" element={<ErrorPage />} />
             <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/signup" element={<Signup setUser={setUser} />} />
-            {/* <Route path="/products/:productId" element={<SingleProduct />} /> */}
-            <Route path="/products/dev" element={<SingleProduct />} />
+            <Route path="/products/:productId" element={<SingleProduct />} />
+            {/* <Route path="/products/dev" element={<SingleProduct />} /> */}
           </Routes>
         </div>
         <Footer />

@@ -24,6 +24,7 @@ type Product {
   size: String
   image: String
   createdAt: String
+  bids: [Bid]
 }
 
 

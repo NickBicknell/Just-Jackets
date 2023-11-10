@@ -27,6 +27,7 @@ export const QUERY_PRODUCTS = gql`
   }
 `;
 
+
 export const QUERY_BIDS = gql`
   query getBids {
     bids {

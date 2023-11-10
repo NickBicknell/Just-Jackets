@@ -5,10 +5,10 @@ const { PRODUCT_BID_INCREASE_AMOUNT } = require('../utils/constants');
 const resolvers = {
   Query: {
     async users(parent, args, contextValue, info) {
-      return await User.find({});
+      return await User.find({}).populate('bids');
     },
     async user(parent,{username}, contextValue, info) {
-      const user = await User.findOne({username})
+      const user = await User.findOne({username}).populate('bids');
       console.log(user)
       return user
     },
@@ -21,7 +21,7 @@ const resolvers = {
       return products
     },
     async product(parent,{productId}, contextValue, info) {
-      const product = await Product.findOne({productId})
+      const product = await Product.findOne({_id: productId}).populate('bids');
       console.log(product)
       return product
     },
@@ -79,12 +79,16 @@ const resolvers = {
 
       await Product.findOneAndUpdate(
         { _id: productId },
+        {$push: {bids:bid._id}},
         { price: newPrice }
       );
-       await User.findOneAndUpdate(
+       const user = await User.findOneAndUpdate(
         {_id: userId},
-        {$push: {bids:bid._id}}
-       )
+        {$push: {bids:bid._id}},
+        { new: true }
+       );
+
+       console.log("USER WITH NEW BID", user);
       return bid;
     },
     // 
