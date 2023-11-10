@@ -25,14 +25,16 @@ const resolvers = {
       console.log(product)
       return product
     },
+ 
     async bids(parent,args, contextValue, info) {
       const bids = await Bid.find({})
-      console.log(bids)
+      console.log("Coming From line 31", bids)
       return bids
       //Argument may need to be user?
     },
     async bid(parent,{bidId}, contextValue, info) {
-      const bid = await Product.findOne({bidId})
+      console.log(bidId)
+      const bid = await Bid.findOne({_id:bidId})
       console.log(bid)
       return bid
     },
@@ -68,7 +70,9 @@ const resolvers = {
     createBid: async (parent, {productId, userId}) =>{
       const currentProduct = await Product.findById(productId);
       const newPrice = currentProduct.price + PRODUCT_BID_INCREASE_AMOUNT;
-      const bid = await Bid.create({amount: newPrice, productId, userId});
+      const existingUser = await User.findOne({_id:userId})
+      const existingProduct = await Product.findOne({_id:productId})
+      const bid = await Bid.create({amount: newPrice, product:existingProduct, user:existingUser});
 
       //Take current Product Amount and then +5 || +10 to updated Product Amount 
       console.log("Bid CREATED:", bid);
@@ -77,7 +81,10 @@ const resolvers = {
         { _id: productId },
         { price: newPrice }
       );
-      
+       await User.findOneAndUpdate(
+        {_id: userId},
+        {$push: {bids:bid._id}}
+       )
       return bid;
     },
     // 

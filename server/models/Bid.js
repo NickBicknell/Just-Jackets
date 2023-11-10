@@ -5,10 +5,7 @@ const userSchema = require("./User");
 const Product = require('./Product');
 
 const bidSchema = new Schema({
-  // bidId: {
-  //   type: Schema.Types.ObjectId,
-  //   default: () => new Types.ObjectId(),
-  // },
+
   amount: {
     type: Number,
     required: true,

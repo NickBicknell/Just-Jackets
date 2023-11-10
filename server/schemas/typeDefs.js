@@ -1,6 +1,6 @@
 const typeDefs =`
 type Bid {
-  bidId: ID
+  _id: ID
   amount: Float
   createdAt: String
   product: Product
@@ -38,7 +38,7 @@ type Product {
     me: User
     products: [Product]
     product(productId: ID): Product
-    bids: Bid
+    bids: [Bid]
     bid(bidId: ID): Bid
     }
   
