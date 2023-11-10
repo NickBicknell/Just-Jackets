@@ -9,6 +9,7 @@ const Footer = () => {
       <Container>
         <Row>
         <Col xs={2}><p>Developed by:</p></Col>
+        {/* link names to github */}
         <Col xs={2}><p>Nicholas Bicknell</p></Col>
         <Col xs={2}><p>Zikos Antonios</p></Col>
         <Col xs={4}></Col>

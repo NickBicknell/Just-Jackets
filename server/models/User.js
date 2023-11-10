@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const bidSchema = require("./Bid");
+const Bid = require("./Bid");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
@@ -28,12 +28,10 @@ const userSchema = new Schema({
     type: String,
     // required: true,
   },
-  bids: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Bid",
-    },
-  ],
+  bids: [{
+    type: Schema.Types.ObjectId,
+    ref: "Bid",
+  }],
 });
 
 userSchema.pre("save", async function (next) {
