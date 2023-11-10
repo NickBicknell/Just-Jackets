@@ -7,10 +7,8 @@ export const QUERY_USER = gql`
       username
       email
       bids {
-        _id
         amount
         createdAt
-        product
       }
     }
   }

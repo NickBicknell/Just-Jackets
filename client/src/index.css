@@ -32,6 +32,14 @@
   color: #113946;
 }
 
+.product-name {
+  color: white;
+}
+
+.product-desc {
+  color: #EAD7BB;
+}
+
 .icon {
   width: 40px;
 }

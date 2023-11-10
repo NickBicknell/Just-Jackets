@@ -6,6 +6,13 @@ import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
+import Info from "../components/Info";
+
+import { useQuery } from "@apollo/client";
+import { QUERY_USER } from "../utils/queries";
+
+import { useState, useEffect } from "react";
+
 // import Spinner from 'react-bootstrap/Spinner';
 
 // import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -42,6 +49,18 @@ const Profile = ({ user }) => {
   //   );
 
   // }
+
+  const { data, loading, error } = useQuery(QUERY_USER, {variables: {username: user?.username}});
+  const [userData, setUserData] = useState();
+
+  useEffect(() => {
+    if (data) {
+      console.log("Data:", data);
+      setUserData(data.user);
+    } else if (error) {
+      console.log(error);
+    }
+  }, [data, loading, error]);
 
   return (
     // <div>
@@ -81,13 +100,13 @@ const Profile = ({ user }) => {
             variant="tabs"
             justify
           >
-            <Tab eventKey="home" title="Info">
-              View your account information
+            <Tab eventKey="profile" title="Info">
+              <Info userData={userData} />
             </Tab>
-            <Tab eventKey="profile" title="Bid History">
+            <Tab eventKey="bids" title="Bid History">
               View your bid history
             </Tab>
-            <Tab eventKey="contact" title="Order History">
+            <Tab eventKey="orders" title="Order History">
               View your order history
             </Tab>
           </Tabs>
