@@ -1,9 +1,7 @@
-// Import the `useParams()` hook
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-// import CommentList from '../components/BidList';
-// import CommentForm from '../components/CommentForm';
+import { useState, useEffect } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -12,33 +10,37 @@ import ProductCard from "../components/ProductCard";
 import HighestBidCard from "../components/HighestBidCard";
 import ProductBidsCard from "../components/ProductBidsCard";
 
-// import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
+import { QUERY_SINGLE_PRODUCT } from "../utils/queries";
 
-const SingleProduct = () => {
+const SingleProduct = ({ user }) => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
-  // const { thoughtId } = useParams();
+  const { productId } = useParams();
+  const { data, loading, error } = useQuery(QUERY_SINGLE_PRODUCT, {
+    variables: { productId: productId },
+  });
+  const [productData, setProductData] = useState();
 
-  // const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {
-  //   // pass URL parameter
-  //   variables: { thoughtId: thoughtId },
-  // });
+  useEffect(() => {
+    if (data) {
+      console.log("Data:", data);
+      setProductData(data.product);
+    } else if (error) {
+      console.log(error);
+    }
+  }, [data, loading, error]);
 
-  // const thought = data?.thought || {};
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
   return (
     <Container>
       <Row className="justify-content-center">
         <Col>
-          <ProductCard />
+          <ProductCard productData={productData} user={user} />
         </Col>
         <Col>
-          <HighestBidCard />
+          <HighestBidCard productData={productData} />
         </Col>
         <Col>
-        <ProductBidsCard />
+          <ProductBidsCard productData={productData} />
         </Col>
       </Row>
     </Container>

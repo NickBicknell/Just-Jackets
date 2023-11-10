@@ -68,6 +68,7 @@ const resolvers = {
       return { token, user };
     },
     createBid: async (parent, {productId, userId}) =>{
+      console.log("CREATE BID!");
       const currentProduct = await Product.findById(productId);
       const newPrice = currentProduct.price + PRODUCT_BID_INCREASE_AMOUNT;
       const existingUser = await User.findOne({_id:userId})

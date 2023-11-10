@@ -20,36 +20,7 @@ import { useState, useEffect } from "react";
 // import Auth from '../utils/auth';
 
 const Profile = ({ user }) => {
-  // const { username: userParam } = useParams();
-
-  // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-  //   variables: { username: userParam },
-  // });
-
-  // const user = data?.me || data?.user || {};
-  // navigate to personal profile page if username is yours
-  // if (Auth.loggedIn() && Auth.getProfile().data.username) {
-  //   return <Navigate to="/me" />;
-  // }
-
-  // if (loading) {
-  //   return (
-  //     <Spinner animation="border" role="status" variant="light">
-  //       <span className="visually-hidden">Loading...</span>
-  //     </Spinner>
-  //   );
-  // }
-
-  // if (!user) {
-  //   return (
-  //     <h4 className="text-center text-white">
-  //       You need to be logged in to see this. Use the navigation links above to
-  //       sign up or log in!
-  //     </h4>
-  //   );
-
-  // }
-
+  
   const { data, loading, error } = useQuery(QUERY_USER, {variables: {username: user?.username}});
   const [userData, setUserData] = useState();
 

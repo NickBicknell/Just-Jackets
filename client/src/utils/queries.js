@@ -49,6 +49,7 @@ query getSingleProduct($productId: ID!) {
     brand
     size
     image
+    price
     createdAt
     bids {
       _id
