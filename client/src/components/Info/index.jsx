@@ -17,12 +17,12 @@ const Info = ({ userData }) => {
   return (
     <>
       <Container>
-        <Row className="mb-5">
-            <Button style={{ width: "30rem" }} className="form-btn" onClick={handleShow}>
+        <Row className="mb-5 justify-content-center">
+            <Button style={{ width: "33rem" }} className="form-btn" onClick={handleShow}>
               Update Account Information
             </Button>
         </Row>
-        <Row className="mb-3">
+        <Row className="mb-3 justify-content-center">
             <Col xs={2} className="border-end">
                 <h5 className="text-white">Username:</h5>
             </Col>
@@ -30,7 +30,7 @@ const Info = ({ userData }) => {
             <h4 className="text-white">{userData?.username}</h4>
             </Col>
         </Row>
-        <Row className="mb-3">
+        <Row className="mb-3 justify-content-center">
             <Col xs={2} className="border-end">
                 <h5 className="text-white">Email:</h5>
             </Col>

@@ -8,7 +8,7 @@ const resolvers = {
       return await User.find({}).populate('bids');
     },
     async user(parent,{username}, contextValue, info) {
-      const user = await User.findOne({username}).populate('bids');
+      const user = await User.findOne({username}).populate({path: 'bids', populate: {path: 'product'}});
       console.log(user)
       return user
     },
@@ -21,13 +21,13 @@ const resolvers = {
       return products
     },
     async product(parent,{productId}, contextValue, info) {
-      const product = await Product.findOne({_id: productId}).populate('bids');
+      const product = await Product.findOne({_id: productId}).populate({path: 'bids', populate: {path: 'user'}});
       console.log(product)
       return product
     },
  
     async bids(parent,args, contextValue, info) {
-      const bids = await Bid.find({})
+      const bids = await Bid.find({});
       console.log("Coming From line 31", bids)
       return bids
       //Argument may need to be user?
@@ -68,6 +68,7 @@ const resolvers = {
       return { token, user };
     },
     createBid: async (parent, {productId, userId}) =>{
+      console.log("CREATE BID!");
       const currentProduct = await Product.findById(productId);
       const newPrice = currentProduct.price + PRODUCT_BID_INCREASE_AMOUNT;
       const existingUser = await User.findOne({_id:userId})
@@ -76,11 +77,11 @@ const resolvers = {
 
       //Take current Product Amount and then +5 || +10 to updated Product Amount 
       console.log("Bid CREATED:", bid);
-
+      console.log("newPrice", newPrice)
       await Product.findOneAndUpdate(
         { _id: productId },
-        {$push: {bids:bid._id}},
-        { price: newPrice }
+        {$push: {bids:bid._id}, price: newPrice},
+        { new: true }
       );
        const user = await User.findOneAndUpdate(
         {_id: userId},

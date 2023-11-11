@@ -10,6 +10,9 @@ export const QUERY_USER = gql`
         _id
         amount
         createdAt
+        product {
+          name
+        }
       }
     }
   }
@@ -49,11 +52,17 @@ query getSingleProduct($productId: ID!) {
     brand
     size
     image
+    price
     createdAt
+    expiresAt
     bids {
       _id
       amount
       createdAt
+      user {
+        _id
+        username
+      }
     }
   }
 }

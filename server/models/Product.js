@@ -38,6 +38,19 @@ const productSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  expiresAt: {
+    type: Date,
+    default: new Date(Date.now() + 1000*60*60*24*7),
+    get: (timestamp) => {
+      if (timestamp < new Date()) {
+        const newDate = new Date(Date.now() + 1000*60*60*24*7)
+        this.expiresAt = newDate
+        return dateFormat(newDate)
+      } else {
+        return dateFormat(timestamp)
+      }
+    },
+  },
   bids: [
     {
       type: Schema.Types.ObjectId,
