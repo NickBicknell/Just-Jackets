@@ -12,6 +12,8 @@ import ProductBidsCard from "../components/ProductBidsCard";
 
 import { QUERY_SINGLE_PRODUCT } from "../utils/queries";
 
+import Timer from "../components/Timer";
+
 const SingleProduct = ({ user }) => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { productId } = useParams();
@@ -32,15 +34,18 @@ const SingleProduct = ({ user }) => {
 
   return (
     <Container>
+      <Row>
+        <Timer productData={productData} />
+      </Row>
       <Row className="justify-content-center">
         <Col>
           <ProductCard productData={productData} user={user} />
         </Col>
         <Col>
-          <HighestBidCard productData={productData} />
+          <HighestBidCard productData={productData} user={user} />
         </Col>
         <Col>
-          <ProductBidsCard productData={productData} />
+          <ProductBidsCard productData={productData} user={user} />
         </Col>
       </Row>
     </Container>

@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import { useMutation } from "@apollo/client";
 import { ADD_BID } from "../../utils/mutations";
 
+
 const ProductCard = ({ productData, user }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -29,13 +30,14 @@ const ProductCard = ({ productData, user }) => {
       },
     });
     handleClose();
+    location.reload();
     console.log("mutationResponse", mutationResponse)
   }
 
   return (
     <>
     <Card style={{ width: "40rem" }}>
-      <Card.Img variant="top" src={"../../public/img/" + productData?.image} />
+      <Card.Img variant="top" src={"../../img/" + productData?.image} />
       <Card.Body>
         <Card.Title>{productData?.name}</Card.Title>
         <Card.Text>Brand: {productData?.brand} <br /> Size: {productData?.size}</Card.Text>

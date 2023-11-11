@@ -8,6 +8,7 @@
   left:0;
   bottom:0;
   right:0;
+  color: #113946;
 }
 
 .btn {
@@ -40,8 +41,35 @@
   color: #EAD7BB;
 }
 
+.timer {
+  /* color: rgb(124, 255, 152); */
+  color: #EAD7BB;
+  text-align: center;
+  width: 600px;
+  display: flex;
+}
+
+.box {
+  font-weight: 300;
+}
+
+
+.box p {
+  font-size: calc(16px + 2vmin);
+  margin: 0;
+}
+
 .icon {
   width: 40px;
+}
+
+.bidName {
+  color: #113946;
+}
+
+.cardTopper {
+  background-color: #EAD7BB;
+  color: #113946
 }
 
 .bg-product {

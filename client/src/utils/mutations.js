@@ -33,6 +33,7 @@ export const ADD_BID = gql`
         createdAt
         product {
           name
+          price
         }
         user {
           username
