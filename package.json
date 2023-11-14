@@ -6,9 +6,11 @@
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run seed\" \"npm run start --prefix client\""
   },
   "keywords": [],
   "author": "",
