@@ -5,6 +5,7 @@
   "scripts": { 
     "dev": "vite", 
     "start": "serve -s build", 
+    
     "build": "vite build", 
     "test": "vite test --env=jsdom", 
     "eject": "vite eject", 
