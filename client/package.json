@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": { 
-    "dev": "react-scripts start", 
+    "dev": "vite", 
     "start": "serve -s build", 
-    "build": "react-scripts build", 
-    "test": "react-scripts test --env=jsdom", 
-    "eject": "react-scripts eject", 
+    "build": "vite build", 
+    "test": "vite test --env=jsdom", 
+    "eject": "vite eject", 
     "heroku-postbuild": "npm run build" 
   },
   "dependencies": {
