@@ -1,15 +1,16 @@
 {
   "name": "just-jackets",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "description": "",
   "main": "server/server.js",
   "scripts": {
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
-    "heroku-postbuild": "npm run install && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run seed\" \"npm run start --prefix client\""
+    "build": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",
