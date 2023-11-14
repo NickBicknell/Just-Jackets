@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -12,31 +11,33 @@ const Info = ({ userData }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  
-
   return (
     <>
       <Container>
         <Row className="mb-5 justify-content-center">
-            <Button style={{ width: "33rem" }} className="form-btn" onClick={handleShow}>
-              Update Account Information
-            </Button>
+          <Button
+            style={{ width: "33rem" }}
+            className="form-btn"
+            onClick={handleShow}
+          >
+            Update Account Information
+          </Button>
         </Row>
         <Row className="mb-3 justify-content-center">
-            <Col xs={2} className="border-end">
-                <h5 className="text-white">Username:</h5>
-            </Col>
-            <Col xs={4}>
+          <Col xs={2} className="border-end">
+            <h5 className="text-white">Username:</h5>
+          </Col>
+          <Col xs={4}>
             <h4 className="text-white">{userData?.username}</h4>
-            </Col>
+          </Col>
         </Row>
         <Row className="mb-3 justify-content-center">
-            <Col xs={2} className="border-end">
-                <h5 className="text-white">Email:</h5>
-            </Col>
-            <Col xs={4}>
+          <Col xs={2} className="border-end">
+            <h5 className="text-white">Email:</h5>
+          </Col>
+          <Col xs={4}>
             <h4 className="text-white">{userData?.email}</h4>
-            </Col>
+          </Col>
         </Row>
       </Container>
 
