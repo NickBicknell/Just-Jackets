@@ -31,7 +31,6 @@ const SingleProduct = ({ user }) => {
     }
   }, [data, loading, error]);
 
-
   return (
     <Container>
       <Row>

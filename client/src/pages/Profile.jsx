@@ -22,8 +22,9 @@ import { useState, useEffect } from "react";
 // import Auth from '../utils/auth';
 
 const Profile = ({ user }) => {
-  
-  const { data, loading, error } = useQuery(QUERY_USER, {variables: {username: user?.username}});
+  const { data, loading, error } = useQuery(QUERY_USER, {
+    variables: { username: user?.username },
+  });
   const [userData, setUserData] = useState();
 
   useEffect(() => {
@@ -36,7 +37,6 @@ const Profile = ({ user }) => {
   }, [data, loading, error]);
 
   return (
-
     // <p className='text-center text-white fs-2'>{ user? 'If working, this will appear.'
     // : 'You need to be logged in to see this. Use the navigation links above to sign up or log in!'}</p>
     <Container>
