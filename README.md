@@ -22,9 +22,9 @@ Just Jackets was developed as an e-commerce auction house for jackets. Three jac
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Credits](#credits)
 - [License](#license)
 - [Questions](#questions)
-- [Contact](#contact)
 
 ## Installation
 
@@ -32,13 +32,13 @@ Just Jackets was developed as an e-commerce auction house for jackets. Three jac
 
 ## Usage
 
-Login at the homescreen and use the button to increase bid amount by increments 5 or 10 dollars.
-Click the arrows to the right and left to preview next weeks selection or review last weeks winners.
+Once arriving to the homepage of Just Jackets you are greeted with a carousel with this weeks three jackets. First signup or login, then you can proceed to bid on the available jackets. The highest bidder at the end of the week will get to purchase the jacket.
 
-## Contributing
+## Credits
 
-I used OpenAI for checking, BCS Help, SMU Instructors, Mini Project
+Nicholas Bicknell
 
+Antonios Zikos
 
 ## License
 
@@ -47,8 +47,5 @@ For more information, please visit (https://opensource.org/licenses/MIT).
 
 ## Questions
 
-For Questions go to my Repo at [https://github.com/pcjitsu/]
+For Questions please refer to the [Repo](https://github.com/NickBicknell/Just-Jackets)
 
-## Contact
-
-For any questions or inquiries, feel free to reach out to me at pcjitsu@gmail.com.
