@@ -1,6 +1,5 @@
 # Just-Jackets
 
-# Logo Maker
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -29,7 +28,7 @@ Just Jackets was developed as an e-commerce auction house for jackets. Three jac
 
 ## Installation
 
-No Need to Install, Just visit: JustJackets
+No Need to Install, Just visit: JustJackets [https://still-sierra-76038-8e521afb268f.herokuapp.com/]
 
 ## Usage
 
